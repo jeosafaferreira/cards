@@ -1,29 +1,10 @@
 <template>
 	<div>
-		<div>
-			<nav class="black">
-				<div class="nav-wrapper">
-					<a href="#" class="brand-logo right">Logo</a>
-					<ul id="nav-mobile" class="left hide-on-med-and-down">
-						<li>
-							<a href="sass.html">Sass</a>
-						</li>
-						<li>
-							<a href="badges.html">Components</a>
-						</li>
-						<li>
-							<a href="collapsible.html">JavaScript</a>
-						</li>
-					</ul>
-				</div>
-			</nav>
-		</div>
-		<div class="divider"></div>
 		<div class="section container">
 			<div class="row">
 				<div class="input-field col s6">
 					<input id="search" type="text" class="validate" autocomplete="off" />
-					<label for="search">Pesquisar ...</label>
+					<label for="search">Pesquisar</label>
 				</div>
 			</div>
 		</div>
@@ -47,6 +28,7 @@
 		</div>
 	</div>
 </template>
+
 <script>
 export default {
 	data() {
@@ -64,8 +46,6 @@ export default {
 	},
 };
 </script>
+
 <style>
-table.highlight tbody tr:hover {
-	background-color: #eee !important;
-}
 </style>
