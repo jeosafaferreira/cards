@@ -40,7 +40,7 @@ export default {
 		const axios = require("axios");
 		axios.defaults.baseURL = "http://localhost:4000";
 		axios
-			.get("/list")
+			.get("/employee")
 			.then((res) => ((this.employees = res), console.log(res)))
 			.catch((error) => console.log(error));
 	},

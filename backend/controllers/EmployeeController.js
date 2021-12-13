@@ -7,6 +7,29 @@ class EmployeeController {
 		}).catch(error => console.log(error))
 	}
 
+	teste(request, response) {
+		db.select("*").from('employees').then(data => {
+			response.json(data)
+		}).catch(error => console.log(error))
+	}
+
+	save(request, response) {
+		console.log("teste")
+		response.json("Teste")
+		// const { nome, documento, matricula, empresa } = request.body
+		// console.log("---- Salvando usuário ----")
+		// console.log("Dados: " + nome, documento, matricula, empresa)
+		// db.insert({
+		// 	nome, documento, matricula, empresa
+
+		// }).table("employees").then(data => {
+		// 	console.log(data)
+		// 	response.json({ message: "Tarefa criada com sucesso!" })
+		// }).catch(error => {
+		// 	console.log(error)
+		// })
+	}
+
 	// 	novaTarefa(request, response) {
 	// 		const { tarefa, descricao, responsavel } = request.body
 
