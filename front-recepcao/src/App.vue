@@ -11,6 +11,9 @@ export default {
 	components: {
 		Top,
 	},
+	// mounted() {
+	// 	M.AutoInit();
+	// },
 };
 </script>
 <style>

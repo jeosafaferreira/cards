@@ -45,7 +45,7 @@
 			<div class="row">
 				<div class="input-field col s4">
 					<i class="material-icons prefix">lock_open</i>
-					<select v-model="employee.places" multiple id="salas">
+					<select v-model="employee.places" multiple id="salas" required>
 						<option value="Biomol - Sala 1">Biomol - Sala 1</option>
 						<option value="Biomol - Sala 2">Biomol - Sala 2</option>
 						<option value="Biomol - Sala 3">Biomol - Sala 3</option>
@@ -56,7 +56,13 @@
 			<div class="row">
 				<div class="input-field col s4">
 					<i class="material-icons prefix">date_range</i>
-					<input type="text" id="data" class="datepicker" />
+					<input
+						v-model="employee.expires_on"
+						type="text"
+						id="data"
+						class="datepicker"
+						autocomplete="off"
+					/>
 					<label for="data">Data final</label>
 				</div>
 			</div>
@@ -81,26 +87,27 @@ export default {
 				registration: "",
 				company: "",
 				places: [],
+				expires_on: "",
 			},
 		};
 	},
 	methods: {
 		save() {
 			//Unificando valores do multiselect
-			this.employee.places = this.employee.places.join(", ");
+			this.employee.places = this.employee.places.join();
 
 			console.log(this.employee);
-			console.log("---- Cadastro.vue ---- Salvando");
-			const axios = require("axios");
-			axios.defaults.baseURL = "http://localhost:4000";
-			axios
-				.post("/employee", this.employee)
-				.then((res) => {
-					console.log(res);
-				})
-				.catch((error) => {
-					console.log(error);
-				});
+			// console.log("---- Cadastro.vue ---- Salvando");
+			// const axios = require("axios");
+			// axios.defaults.baseURL = "http://localhost:4000";
+			// axios
+			// 	.post("/employee", this.employee)
+			// 	.then((res) => {
+			// 		console.log(res);
+			// 	})
+			// 	.catch((error) => {
+			// 		console.log(error);
+			// 	});
 		},
 	},
 };

@@ -12,9 +12,10 @@
 			<table class="highlight">
 				<thead>
 					<tr>
+						<th>ID</th>
 						<th>Nome</th>
 						<th>Empresa</th>
-						<th>Cartão</th>
+						<th>Data Final</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -22,6 +23,7 @@
 						<td>{{employee.id}}</td>
 						<td>{{employee.name}}</td>
 						<td>{{employee.company}}</td>
+						<td>{{employee.expires_on}}</td>
 					</tr>
 				</tbody>
 			</table>
