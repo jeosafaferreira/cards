@@ -4,7 +4,7 @@ const router = express.Router()
 const EmployeeController = require("../controllers/EmployeeController")
 
 router.get("/employee", EmployeeController.list)
-router.post("/employee", EmployeeController.teste)
+router.post("/employee", EmployeeController.save)
 // router.get("/tarefa/:id", TaskController.buscaId)
 // router.put("/tarefa/:id", TaskController.editar)
 // router.delete("/tarefa/:id", TaskController.deletar)

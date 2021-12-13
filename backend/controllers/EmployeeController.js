@@ -7,52 +7,20 @@ class EmployeeController {
 		}).catch(error => console.log(error))
 	}
 
-	teste(request, response) {
-		db.select("*").from('employees').then(data => {
-			response.json(data)
-		}).catch(error => console.log(error))
-	}
-
 	save(request, response) {
-		console.log("teste")
-		response.json("Teste")
-		// const { nome, documento, matricula, empresa } = request.body
-		// console.log("---- Salvando usuário ----")
-		// console.log("Dados: " + nome, documento, matricula, empresa)
-		// db.insert({
-		// 	nome, documento, matricula, empresa
+		const { name, document, registration, company, places, expires_on } = request.body
 
-		// }).table("employees").then(data => {
-		// 	console.log(data)
-		// 	response.json({ message: "Tarefa criada com sucesso!" })
-		// }).catch(error => {
-		// 	console.log(error)
-		// })
+		console.log("Salvando ...")
+		console.log(name, document, registration, company, places, expires_on)
+
+		//Cadastra visitante
+		db.insert({ name, document, registration, company, places, expires_on }).table("employees").then(data => {
+			response.json(data)
+		}).catch(error => {
+			response.json(error)
+		})
+
 	}
-
-	// 	novaTarefa(request, response) {
-	// 		const { tarefa, descricao, responsavel } = request.body
-
-	// 		console.log(tarefa, descricao, responsavel)
-
-	// 		database.insert({ tarefa, descricao, responsavel }).table("tasks").then(data => {
-	// 			console.log(data)
-	// 			response.json({ message: "Tarefa criada com sucesso !" })
-
-	// 		}).catch(error => {
-	// 			console.log(error)
-	// 		})
-
-	// 	}
-
-	// 	listarTarefas(request, response) {
-	// 		database.select("*").table("tasks").then(tarefas => {
-	// 			console.log(tarefas)
-	// 			response.json(tarefas)
-	// 		}).catch(error => {
-	// 			console.log(error)
-	// 		})
-	// 	}
 
 	// 	buscaId(request, response) {
 	// 		const id = request.params.id

@@ -45,10 +45,10 @@
 			<div class="row">
 				<div class="input-field col s4">
 					<i class="material-icons prefix">lock_open</i>
-					<select multiple id="salas">
-						<option value="1">Biomol - Sala 1</option>
-						<option value="2">Biomol - Sala 2</option>
-						<option value="3">Biomol - Sala 3</option>
+					<select v-model="employee.places" multiple id="salas">
+						<option value="Biomol - Sala 1">Biomol - Sala 1</option>
+						<option value="Biomol - Sala 2">Biomol - Sala 2</option>
+						<option value="Biomol - Sala 3">Biomol - Sala 3</option>
 					</select>
 					<label>Sala(s) a ser(em) visitada(s):</label>
 				</div>
@@ -73,18 +73,26 @@
 
 <script>
 export default {
-	name: "Cadastro",
 	data() {
 		return {
-			employee: [""],
+			employee: {
+				name: "",
+				document: "",
+				registration: "",
+				company: "",
+				places: [],
+			},
 		};
 	},
 	methods: {
 		save() {
+			//Unificando valores do multiselect
+			this.employee.places = this.employee.places.join(", ");
+
+			console.log(this.employee);
 			console.log("---- Cadastro.vue ---- Salvando");
 			const axios = require("axios");
 			axios.defaults.baseURL = "http://localhost:4000";
-
 			axios
 				.post("/employee", this.employee)
 				.then((res) => {
