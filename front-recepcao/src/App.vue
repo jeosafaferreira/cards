@@ -6,14 +6,14 @@
 </template>
 <script>
 import Top from "@/components/Top";
-
+import M from "materialize-css";
 export default {
 	components: {
 		Top,
 	},
-	// mounted() {
-	// 	M.AutoInit();
-	// },
+	mounted() {
+		M.AutoInit();
+	},
 };
 </script>
 <style>
