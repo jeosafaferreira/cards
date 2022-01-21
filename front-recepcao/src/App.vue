@@ -1,3 +1,4 @@
+
 <template>
 	<div>
 		<Top></Top>
@@ -7,12 +8,13 @@
 <script>
 import Top from "@/components/Top";
 import M from "materialize-css";
+
 export default {
-	components: {
-		Top,
-	},
 	mounted() {
 		M.AutoInit();
+	},
+	components: {
+		Top,
 	},
 };
 </script>
