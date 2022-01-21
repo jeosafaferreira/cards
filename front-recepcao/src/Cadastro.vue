@@ -57,13 +57,13 @@
 				<div class="input-field col s4">
 					<i class="material-icons prefix">date_range</i>
 					<input
-						v-model="employee.expires_on"
+						v-model.lazy="employee.expires_on"
 						type="text"
-						id="data"
+						id="expires_on"
 						class="datepicker"
 						autocomplete="off"
 					/>
-					<label for="data">Data final</label>
+					<label for="expires_on">Data final</label>
 				</div>
 			</div>
 			<div class="row">
@@ -78,15 +78,17 @@
 </template>
 
 <script>
+import M from "materialize-css";
+import $ from "jquery";
 export default {
 	data() {
 		return {
 			employee: {
+				places: [],
 				name: "",
 				document: "",
 				registration: "",
 				company: "",
-				places: [],
 				expires_on: "",
 			},
 		};
@@ -96,7 +98,8 @@ export default {
 			//Unificando valores do multiselect
 			this.employee.places = this.employee.places.join();
 
-			console.log(this.employee);
+			console.log("Nome: \n" + this.employee.name);
+			console.log("Data: \n" + this.employee.expires_on);
 			// console.log("---- Cadastro.vue ---- Salvando");
 			// const axios = require("axios");
 			// axios.defaults.baseURL = "http://localhost:4000";
@@ -109,6 +112,12 @@ export default {
 			// 		console.log(error);
 			// 	});
 		},
+	},
+	mounted() {
+		M.AutoInit();
+		$(".datepicker").datepicker({
+			default: "now",
+		});
 	},
 };
 </script>
