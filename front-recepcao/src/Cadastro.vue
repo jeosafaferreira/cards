@@ -79,7 +79,7 @@
 
 <script>
 import M from "materialize-css";
-import $ from "jquery";
+// import $ from "jquery";
 export default {
 	data() {
 		return {
@@ -100,24 +100,25 @@ export default {
 
 			console.log("Nome: \n" + this.employee.name);
 			console.log("Data: \n" + this.employee.expires_on);
-			// console.log("---- Cadastro.vue ---- Salvando");
-			// const axios = require("axios");
-			// axios.defaults.baseURL = "http://localhost:4000";
-			// axios
-			// 	.post("/employee", this.employee)
-			// 	.then((res) => {
-			// 		console.log(res);
-			// 	})
-			// 	.catch((error) => {
-			// 		console.log(error);
-			// 	});
+			console.log("---- Cadastro.vue ---- Salvando");
+			const axios = require("axios");
+			axios.defaults.baseURL = "http://localhost:4000";
+			axios
+				.post("/employee", this.employee)
+				.then((res) => {
+					console.log(res);
+				})
+				.catch((error) => {
+					console.log(error);
+				});
 		},
 	},
 	mounted() {
 		M.AutoInit();
-		$(".datepicker").datepicker({
-			default: "now",
-		});
+
+		// $(".datepicker").datepicker({
+		// 	default: "now",
+		// });
 	},
 };
 </script>

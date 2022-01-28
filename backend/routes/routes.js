@@ -5,8 +5,8 @@ const EmployeeController = require("../controllers/EmployeeController")
 
 router.get("/employee", EmployeeController.list)
 router.post("/employee", EmployeeController.save)
-// router.get("/tarefa/:id", TaskController.buscaId)
-// router.put("/tarefa/:id", TaskController.editar)
+router.get("/employee/:chave", EmployeeController.search)
+// router.put("/tarefa/:id", TaskController.editar) 
 // router.delete("/tarefa/:id", TaskController.deletar)
 
 module.exports = router

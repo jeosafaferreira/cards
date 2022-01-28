@@ -22,6 +22,17 @@ class EmployeeController {
 
 	}
 
+	search(request, response) {
+		console.log("Pesquisando por ..." + request.params.chave)
+		const chave = request.params.chave
+
+		db.select("*").from('employees').where('name', 'like', '%' + chave + '%').orWhere('company', 'like', '%' + chave + '%').then(data => {
+			response.json(data)
+		}).catch(error => {
+			console.lor(error)
+		})
+	}
+
 	// 	buscaId(request, response) {
 	// 		const id = request.params.id
 

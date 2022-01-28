@@ -3,7 +3,14 @@
 		<div class="section container">
 			<div class="row">
 				<div class="input-field col s6">
-					<input id="search" type="text" class="validate" autocomplete="off" />
+					<input
+						v-model="chave"
+						v-on:keyup="search"
+						id="search"
+						type="text"
+						class="validate"
+						autocomplete="off"
+					/>
 					<label for="search">Pesquisar</label>
 				</div>
 			</div>
@@ -36,7 +43,18 @@ export default {
 	data() {
 		return {
 			employees: [],
+			chave: "",
 		};
+	},
+	methods: {
+		search() {
+			const axios = require("axios");
+			axios.defaults.baseURL = "http://localhost:4000";
+			axios
+				.get("/employee/" + this.chave)
+				.then((res) => ((this.employees = res), console.log(res)))
+				.catch((error) => console.log(error));
+		},
 	},
 	mounted() {
 		const axios = require("axios");
